@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Backend API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .endpoint {
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .method {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .path {
+            color: #e67e22;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>LeetCode Backend API Documentation</h1>
+    
+    <div class="endpoint">
+        <h2><span class="method">POST</span> <span class="path">/api/users/register</span></h2>
+        <p>Register a new user</p>
+        <h3>Request Body:</h3>
+        <pre><code>{
+    "username": "string",
+    "password": "string",
+    "role": "string" // optional, defaults to "user"
+}</code></pre>
+        <h3>Response:</h3>
+        <pre><code>// Success (201)
+{
+    "message": "User registered successfully",
+    "user": {
+        "userid": number,
+        "username": "string",
+        "role": "string"
+    }
+}
+
+// Error (400)
+{
+    "error": "Error message"
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h2><span class="method">POST</span> <span class="path">/api/users/login</span></h2>
+        <p>Login with existing credentials</p>
+        <h3>Request Body:</h3>
+        <pre><code>{
+    "username": "string",
+    "password": "string"
+}</code></pre>
+        <h3>Response:</h3>
+        <pre><code>// Success (200)
+{
+    "message": "Login successful",
+    "user": {
+        "userid": number,
+        "username": "string",
+        "role": "string"
+    }
+}
+
+// Error (401)
+{
+    "message": "Authentication failed"
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h2><span class="method">GET</span> <span class="path">/users</span></h2>
+        <p>Get list of all users</p>
+        <h3>Response:</h3>
+        <pre><code>// Success (200)
+[
+    {
+        "userid": number,
+        "username": "string",
+        "role": "string"
+    }
+]</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h2><span class="method">GET</span> <span class="path">/task</span></h2>
+        <p>Get list of all tasks</p>
+        <h3>Response:</h3>
+        <pre><code>// Success (200)
+[
+    {
+        "id_list": number,
+        "title": "string",
+        "description": "string",
+        "difficulty": "string"
+    }
+]</code></pre>
+    </div>
+</body>
+</html>
